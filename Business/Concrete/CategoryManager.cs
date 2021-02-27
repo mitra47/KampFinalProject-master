@@ -20,12 +20,12 @@ namespace Business.Concrete
         public IDataResult<List<Category>> GetAll()
         {
             //İş Kodları
-            return (IDataResult<List<Category>>)_categoryDal.GetAll();
+            return new  SuccessDataResult<List<Category>>(_categoryDal.GetAll());
         }
 
         public IDataResult<Category> GetById(int categoryId)
         {
-            return (IDataResult<Category>)_categoryDal.Get(c => c.CategoryId == categoryId);
+            return new SuccessDataResult<Category>(_categoryDal.Get(c => c.CategoryId == categoryId));
         }
     }
 }
